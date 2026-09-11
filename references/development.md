@@ -10,6 +10,8 @@
 
 复杂度由主代理自行识别，命中条件必须走 [复杂插件编排](complex-workflow.md)，每张实施票显式调用 implement；该技能要求 tdd 时按行为边界执行。原生参考模板和 examples 只作为代码阅读素材，不替代必需调用。用户已停止的例子不因更新编排而继续运行。
 
+实现前按 [高效交付](efficient-delivery.md) 提取当前必需技能的硬规范并尽早检查；涉及共享设置时，先验证并发读写和异常后继续操作。特殊浏览器能力尽早探测，不在最终验收才发现环境不支持。
+
 ## Chrome 实现要点
 
 - 每项权限对应功能。点击后临时读当前网页可评估 activeTab 与 scripting；持久网站访问才选窄化 host permissions，并处理临时授权生命周期。不要默认所有网站、tabs、debugger 等权限。[activeTab](https://developer.chrome.com/docs/extensions/develop/concepts/activeTab)
