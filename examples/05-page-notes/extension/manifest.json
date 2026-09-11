@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "网页便签",
+  "version": "0.1.0",
+  "description": "给当前网页写一张便签，再次打开同一网址时找回。内容只保存在当前浏览器。",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_title": "网页便签",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}

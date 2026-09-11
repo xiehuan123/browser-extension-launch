@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-09-11",
+  "scope": "静态 DOM ID 与选择器对应检查，不是浏览器渲染测试",
+  "html_ids": [
+    "session-form",
+    "session-name",
+    "save-button",
+    "status",
+    "retry-button",
+    "saved-heading",
+    "count",
+    "empty-state",
+    "session-list"
+  ],
+  "selected_ids": [
+    "session-form",
+    "session-name",
+    "save-button",
+    "retry-button",
+    "status",
+    "session-list",
+    "count",
+    "empty-state"
+  ],
+  "missing_ids": [],
+  "duplicate_ids": []
+}

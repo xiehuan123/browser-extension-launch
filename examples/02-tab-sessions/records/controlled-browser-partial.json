@@ -1,0 +1,19 @@
+{
+  "status": "user_stopped_not_accepted",
+  "scope": "受控Chrome MCP实际执行片段；不是完整E2E验收报告",
+  "events": [
+    {
+      "at": "2026-09-11T13:45:16.496Z",
+      "example": "02-tab-sessions",
+      "label": "install current unpacked candidate",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Extension installed. Id: galgomlempdiaaoibdopcokidjhajhcc"
+          }
+        ]
+      }
+    }
+  ]
+}

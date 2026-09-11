@@ -1,0 +1,80 @@
+TAP version 13
+# Subtest: creation trims outer whitespace but preserves internal line breaks
+ok 1 - creation trims outer whitespace but preserves internal line breaks
+  ---
+  duration_ms: 24.908917
+  ...
+# Subtest: blank and oversized titles are rejected
+ok 2 - blank and oversized titles are rejected
+  ---
+  duration_ms: 0.243916
+  ...
+# Subtest: blank and oversized body text is rejected
+ok 3 - blank and oversized body text is rejected
+  ---
+  duration_ms: 0.080208
+  ...
+# Subtest: search matches title or body with Chinese and case-insensitive English
+ok 4 - search matches title or body with Chinese and case-insensitive English
+  ---
+  duration_ms: 0.549333
+  ...
+# Subtest: empty search shows all items; unmatched search shows none
+ok 5 - empty search shows all items; unmatched search shows none
+  ---
+  duration_ms: 0.661459
+  ...
+# Subtest: fresh storage loads an empty collection
+ok 6 - fresh storage loads an empty collection
+  ---
+  duration_ms: 1.38425
+  ...
+# Subtest: save, reopen and delete preserve the intended data
+ok 7 - save, reopen and delete preserve the intended data
+  ---
+  duration_ms: 0.619083
+  ...
+# Subtest: a failed write leaves previous in-memory and stored data unchanged
+ok 8 - a failed write leaves previous in-memory and stored data unchanged
+  ---
+  duration_ms: 0.739917
+  ...
+# Subtest: read failure prevents writing over unread data
+ok 9 - read failure prevents writing over unread data
+  ---
+  duration_ms: 0.495375
+  ...
+# Subtest: corrupt records and duplicate IDs are rejected without clearing storage
+ok 10 - corrupt records and duplicate IDs are rejected without clearing storage
+  ---
+  duration_ms: 0.516334
+  ...
+# Subtest: 200-item storage limit is enforced
+ok 11 - 200-item storage limit is enforced
+  ---
+  duration_ms: 4.41675
+  ...
+# Subtest: callers cannot mutate confirmed state through the items getter
+ok 12 - callers cannot mutate confirmed state through the items getter
+  ---
+  duration_ms: 17.997
+  ...
+# Subtest: copy sends only body text, preserving newlines and literal HTML
+ok 13 - copy sends only body text, preserving newlines and literal HTML
+  ---
+  duration_ms: 13.080167
+  ...
+# Subtest: clipboard failure propagates and never changes stored text
+ok 14 - clipboard failure propagates and never changes stored text
+  ---
+  duration_ms: 10.927959
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 476.897208

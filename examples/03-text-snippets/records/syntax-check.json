@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-09-11",
+  "runtime": "Node.js v20.19.4",
+  "checks": [
+    {
+      "file": "extension/core.js",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "file": "extension/popup.js",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

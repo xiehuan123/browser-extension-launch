@@ -1,0 +1,90 @@
+TAP version 13
+# Subtest: snapshot keeps ordered http(s) pages and skips unsupported or missing URLs
+ok 1 - snapshot keeps ordered http(s) pages and skips unsupported or missing URLs
+  ---
+  duration_ms: 2.497792
+  ...
+# Subtest: snapshot keeps duplicates and falls back to URL for blank titles
+ok 2 - snapshot keeps duplicates and falls back to URL for blank titles
+  ---
+  duration_ms: 0.174959
+  ...
+# Subtest: snapshot rejects credential-bearing URLs and non-Web URLs
+ok 3 - snapshot rejects credential-bearing URLs and non-Web URLs
+  ---
+  duration_ms: 0.10425
+  ...
+# Subtest: snapshot rejects a window without supported pages
+ok 4 - snapshot rejects a window without supported pages
+  ---
+  duration_ms: 0.268375
+  ...
+# Subtest: snapshot refuses over 200 pages instead of silently truncating
+ok 5 - snapshot refuses over 200 pages instead of silently truncating
+  ---
+  duration_ms: 0.277291
+  ...
+# Subtest: session names are trimmed and invalid names rejected
+ok 6 - session names are trimmed and invalid names rejected
+  ---
+  duration_ms: 0.365667
+  ...
+# Subtest: fresh storage starts with no sessions
+ok 7 - fresh storage starts with no sessions
+  ---
+  duration_ms: 0.388
+  ...
+# Subtest: save and reload round-trip, and delete persists
+ok 8 - save and reload round-trip, and delete persists
+  ---
+  duration_ms: 0.483375
+  ...
+# Subtest: write failure preserves last confirmed state
+ok 9 - write failure preserves last confirmed state
+  ---
+  duration_ms: 1.431
+  ...
+# Subtest: read failure propagates without making any write
+ok 10 - read failure propagates without making any write
+  ---
+  duration_ms: 1.474791
+  ...
+# Subtest: corrupt storage and duplicate IDs are rejected without clearing data
+ok 11 - corrupt storage and duplicate IDs are rejected without clearing data
+  ---
+  duration_ms: 0.225334
+  ...
+# Subtest: 30-session limit is enforced
+ok 12 - 30-session limit is enforced
+  ---
+  duration_ms: 1.333333
+  ...
+# Subtest: callers cannot mutate stored memory through the public items getter
+ok 13 - callers cannot mutate stored memory through the public items getter
+  ---
+  duration_ms: 0.781792
+  ...
+# Subtest: restore opens saved URLs as inactive new tabs without closing existing ones
+ok 14 - restore opens saved URLs as inactive new tabs without closing existing ones
+  ---
+  duration_ms: 0.254292
+  ...
+# Subtest: partial restore failure is counted; it does not erase saved pages
+ok 15 - partial restore failure is counted; it does not erase saved pages
+  ---
+  duration_ms: 0.121416
+  ...
+# Subtest: restore validates malicious URLs before making any browser call
+ok 16 - restore validates malicious URLs before making any browser call
+  ---
+  duration_ms: 0.183375
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 464.554208

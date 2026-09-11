@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>专注一会儿</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="timer-model.js" defer></script>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">留一点时间，做一件事</p>
+    <h1>专注一会儿</h1>
+    <label for="duration">这次专注多久</label>
+    <select id="duration" disabled>
+      <option value="5">5 分钟 · 热热身</option>
+      <option value="15">15 分钟 · 做件小事</option>
+      <option value="25" selected>25 分钟 · 静下心来</option>
+    </select>
+    <p class="timer" id="timer" role="timer" aria-label="剩余时间">25:00</p>
+    <p id="status" class="status" aria-live="polite">正在读取计时…</p>
+    <div class="actions">
+      <button id="primary" type="button" disabled>开始专注</button>
+      <button id="reset" class="secondary" type="button">重置</button>
+    </div>
+    <p id="error" class="error" role="alert" hidden></p>
+    <button id="refresh" class="text-button" type="button">刷新状态</button>
+    <p class="hint">关掉这个小窗口也会继续计时。到时图标显示 ✓，没有声音或弹窗。电脑休眠时，提醒可能稍晚。</p>
+    <p class="privacy">计时只留在这台电脑。</p>
+  </main>
+</body>
+</html>

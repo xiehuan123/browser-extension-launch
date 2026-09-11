@@ -1,0 +1,15 @@
+{
+  "source": "上一轮隔离试用产生的 extension 目录",
+  "original_location": "/tmp/extension-launch-forward-5OrCsx/extension",
+  "unchanged_copy": true,
+  "files_sha256": {
+    "icons/icon-128.png": "0cdf8c4edd93388847473fb7f3ea59781093e9b9ca37cb4f252f56ae28d0006b",
+    "icons/icon-16.png": "211842c6fd1d85757759c6fac76eb04e0b7b55d1fa10ec0b0d831255ea1751d3",
+    "icons/icon-32.png": "a3205063a8667142b94aabb40effe6b35f8ffb47e67a0ce877a46679049d2864",
+    "icons/icon-48.png": "0875fce613b8bd0b9604a5104c8dcf729dec164993f211fa06ca8034a05c74cb",
+    "manifest.json": "d16ee6933a2c79077599e19c87f9903b2ac1c9fb12fa99084a3fdaa806a5d5d3",
+    "popup.css": "5f6c77840564785267b32661913d6cfae25062752de99009b1500f39e4225693",
+    "popup.html": "ca33bd5f04371bd41ecc6b70bb57cda4922fa4054dde12908f707ea5a4fa9566",
+    "popup.js": "72e9d09c3d1679168836b1c2f60106523a050346a5bf8d584cfa59d2947270d0"
+  }
+}

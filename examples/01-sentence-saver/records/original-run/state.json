@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-11T13:08:35+00:00",
+  "updated_at": "2026-09-11T13:10:34.221221+00:00",
+  "project": {
+    "name": "摘一句",
+    "root": "..",
+    "idea": "我不会编程，也没有 GitHub。帮我做个能把自己输入的句子存起来、关掉还能找到的小插件，先在 Chrome 自己用，今天不公开。",
+    "target_browser": {
+      "value": "chrome",
+      "status": "confirmed",
+      "source": "user_request"
+    },
+    "distribution": {
+      "channel": "local_unpacked",
+      "audience": "self",
+      "status": "confirmed",
+      "source": "D-002"
+    }
+  },
+  "record_policy": {
+    "authority": [
+      "spec.md",
+      "decisions.md",
+      "tasks/*.md"
+    ],
+    "state_role": "index_only",
+    "paths_relative_to": ".extension-launch",
+    "updates": "single_writer; preserve last valid state before atomic replacement",
+    "resume": "read authoritative documents; compare actual version and evidence before resuming"
+  },
+  "phase": "implementation",
+  "spec": {
+    "path": "spec.md",
+    "status": "scope_ready"
+  },
+  "decisions_path": "decisions.md",
+  "progress_path": "progress.md",
+  "tasks": [
+    {
+      "id": "T-001",
+      "type": "scope",
+      "path": "tasks/T-001.md",
+      "parent": null,
+      "children": [
+        "T-002",
+        "T-003",
+        "T-004",
+        "T-005"
+      ],
+      "depends_on": [],
+      "status": "needs_scope",
+      "scope_ready": false,
+      "version": null,
+      "evidence": []
+    },
+    {
+      "id": "T-002",
+      "type": "implementation",
+      "path": "tasks/T-002.md",
+      "parent": "T-001",
+      "children": [],
+      "depends_on": [],
+      "status": "needs_scope",
+      "scope_ready": false,
+      "version": null,
+      "evidence": []
+    },
+    {
+      "id": "T-003",
+      "type": "acceptance",
+      "path": "tasks/T-003.md",
+      "parent": "T-001",
+      "children": [],
+      "depends_on": [
+        "T-002"
+      ],
+      "status": "blocked",
+      "scope_ready": false,
+      "version": null,
+      "evidence": []
+    },
+    {
+      "id": "T-004",
+      "type": "release-preparation",
+      "path": "tasks/T-004.md",
+      "parent": "T-001",
+      "children": [],
+      "depends_on": [
+        "T-003"
+      ],
+      "status": "blocked",
+      "scope_ready": false,
+      "version": null,
+      "evidence": []
+    },
+    {
+      "id": "T-005",
+      "type": "launch-tracking",
+      "path": "tasks/T-005.md",
+      "parent": "T-001",
+      "children": [],
+      "depends_on": [
+        "T-004"
+      ],
+      "status": "blocked",
+      "scope_ready": false,
+      "version": null,
+      "evidence": []
+    }
+  ],
+  "next_actions": [
+    "完成静态检查和可恢复源码快照。",
+    "复核规范与规格，记录尚未执行的真实扩展验收。",
+    "提供 extension/ 的确切加载位置及当前一步。"
+  ],
+  "needs_user": [],
+  "capabilities": {
+    "checked_at": null,
+    "bundled_methods": {
+      "dependencies": {
+        "kind": "bundled_method",
+        "source": "references/dependencies.md",
+        "source_base": "skill_root",
+        "status": "available",
+        "host_activation": "not_applicable",
+        "execution_proven": false
+      },
+      "workflow": {
+        "kind": "bundled_method",
+        "source": "references/workflow.md",
+        "source_base": "skill_root",
+        "status": "available",
+        "host_activation": "not_applicable",
+        "execution_proven": false
+      },
+      "development": {
+        "kind": "bundled_method",
+        "source": "references/development.md",
+        "source_base": "skill_root",
+        "status": "available",
+        "host_activation": "not_applicable",
+        "execution_proven": false
+      },
+      "acceptance": {
+        "kind": "bundled_method",
+        "source": "references/acceptance.md",
+        "source_base": "skill_root",
+        "status": "available",
+        "host_activation": "not_applicable",
+        "execution_proven": false
+      },
+      "publishing": {
+        "kind": "bundled_method",
+        "source": "references/publishing.md",
+        "source_base": "skill_root",
+        "status": "available",
+        "host_activation": "not_applicable",
+        "execution_proven": false
+      }
+    },
+    "external_skills": [],
+    "execution_tools": {
+      "status": "unverified"
+    },
+    "development_software": {
+      "status": "unverified"
+    },
+    "doctor_report": null
+  },
+  "milestones": {
+    "built": {
+      "status": "not_started",
+      "version": null,
+      "evidence": []
+    },
+    "accepted": {
+      "status": "not_started",
+      "version": null,
+      "evidence": []
+    },
+    "submitted": {
+      "status": "not_started",
+      "version": null,
+      "evidence": []
+    },
+    "live": {
+      "status": "not_started",
+      "version": null,
+      "evidence": []
+    }
+  },
+  "release": {
+    "status": "not_prepared",
+    "candidate_version": null,
+    "package": null,
+    "acceptance_task": "T-003",
+    "preparation_task": "T-004",
+    "tracking_task": "T-005",
+    "channel": null,
+    "submission": null,
+    "store_url": null,
+    "authorization_evidence": [],
+    "first_use_evidence": []
+  }
+}

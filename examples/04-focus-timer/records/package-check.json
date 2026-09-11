@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "checks_passed",
+  "build_dir": "/Users/xiehuan/Desktop/浏览器插件/skills/browser-extension-launch/examples/04-focus-timer/extension",
+  "manifest": {
+    "name": "专注一会儿",
+    "version": "1.0.0",
+    "description": "选择 5、15 或 25 分钟专注时间，支持暂停、继续和到时标记；计时记录只留在本机。",
+    "manifest_version": 3
+  },
+  "errors": [],
+  "warnings": [],
+  "inventory": [
+    {
+      "path": "icons/icon-128.png",
+      "bytes": 558,
+      "sha256": "0cdf8c4edd93388847473fb7f3ea59781093e9b9ca37cb4f252f56ae28d0006b"
+    },
+    {
+      "path": "icons/icon-16.png",
+      "bytes": 143,
+      "sha256": "211842c6fd1d85757759c6fac76eb04e0b7b55d1fa10ec0b0d831255ea1751d3"
+    },
+    {
+      "path": "icons/icon-32.png",
+      "bytes": 202,
+      "sha256": "a3205063a8667142b94aabb40effe6b35f8ffb47e67a0ce877a46679049d2864"
+    },
+    {
+      "path": "icons/icon-48.png",
+      "bytes": 267,
+      "sha256": "0875fce613b8bd0b9604a5104c8dcf729dec164993f211fa06ca8034a05c74cb"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 683,
+      "sha256": "23e72da38d00247287ba15ce83cccf6216bdaaab43743f398b8829093ab7cd7f"
+    },
+    {
+      "path": "popup.css",
+      "bytes": 1686,
+      "sha256": "0184629d717bcc5005550bcff84345562645f16f97ab004dfaab094ae2fc95ac"
+    },
+    {
+      "path": "popup.html",
+      "bytes": 1420,
+      "sha256": "6bcf857de10b308fb9fd3e1b589b2072269ae673ed68c779b7fa1d0ed5802f67"
+    },
+    {
+      "path": "popup.js",
+      "bytes": 3106,
+      "sha256": "774561587ea5de3dbab09dc07321e8de672b678d302592bd42693eccbe958349"
+    },
+    {
+      "path": "timer-model.js",
+      "bytes": 2354,
+      "sha256": "18f8aeaea039eb97dda11fb6293b30e6251b10879fdf239a90f1a10260c6108f"
+    },
+    {
+      "path": "worker.js",
+      "bytes": 3695,
+      "sha256": "1ff132dae501f9d2b46719400b6e11f4c85a9e89a7c130aacf4616e9988792e0"
+    }
+  ],
+  "checks_scope": {
+    "performed": [
+      "MV3 基础字段与版本",
+      "manifest 声明的本地资源",
+      "HTML 常见静态资源",
+      "默认语言消息",
+      "图标存在与 PNG 尺寸",
+      "敏感文件与路径",
+      "部分远程执行和开发地址启发式"
+    ],
+    "not_performed": [
+      "完整 Chrome manifest schema 校验",
+      "全部动态依赖分析",
+      "完整安全与隐私审计",
+      "浏览器安装和功能测试",
+      "商店后台检查",
+      "审核或发布"
+    ],
+    "warning_policy": "警告必须由开发者逐项复核；零警告也不代表没有远程代码、隐私问题或功能故障。"
+  }
+}

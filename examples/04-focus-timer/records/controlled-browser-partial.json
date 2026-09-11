@@ -1,0 +1,219 @@
+{
+  "status": "user_stopped_not_accepted",
+  "scope": "受控Chrome MCP实际执行片段；不是完整E2E验收报告",
+  "events": [
+    {
+      "at": "2026-09-11T13:45:28.298Z",
+      "example": "04-focus-timer",
+      "label": "install current unpacked candidate",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Extension installed. Id: mnmapcdbidjbdmpfdgkdkeoakccpllih"
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-11T13:46:00.334Z",
+      "example": "04-focus-timer",
+      "label": "native action",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Extension action triggered for ID mnmapcdbidjbdmpfdgkdkeoakccpllih"
+          }
+        ]
+      }
+    },
+    {
+      "example": "04-focus-timer",
+      "at": "2026-09-11T13:46:33.255Z",
+      "label": "native popup initial",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "## Latest page snapshot\nuid=1_0 RootWebArea \"专注一会儿\" url=\"chrome-extension://mnmapcdbidjbdmpfdgkdkeoakccpllih/popup.html\"\n  uid=1_1 main\n    uid=1_2 StaticText \"留一点时间，做一件事\"\n    uid=1_3 heading \"专注一会儿\" level=\"1\"\n    uid=1_4 StaticText \"这次专注多久\"\n    uid=1_5 combobox \"这次专注多久\" expandable haspopup=\"menu\" value=\"25 分钟 · 静下心来\"\n      uid=1_6 option \"5 分钟 · 热热身\" selectable value=\"5 分钟 · 热热身\"\n      uid=1_7 option \"15 分钟 · 做件小事\" selectable value=\"15 分钟 · 做件小事\"\n      uid=1_8 option \"25 分钟 · 静下心来\" selectable selected value=\"25 分钟 · 静下心来\"\n    uid=1_9 StaticText \"25:00\"\n    uid=1_10 paragraph live=\"polite\" relevant=\"additions text\"\n      uid=1_11 StaticText \"准备好，就从现在开始。\"\n    uid=1_12 button \"开始专注\"\n    uid=1_13 button \"重置\"\n    uid=1_14 button \"刷新状态\"\n    uid=1_15 StaticText \"关掉这个小窗口也会继续计时。到时图标显示 ✓，没有声音或弹窗。电脑休眠时，提醒可能稍晚。\"\n    uid=1_16 StaticText \"计时只留在这台电脑。\"\n"
+          }
+        ]
+      }
+    },
+    {
+      "example": "04-focus-timer",
+      "at": "2026-09-11T13:46:59.865Z",
+      "label": "choose actual 5 minutes",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error: Failed to interact with the element with uid 1_5. The element did not become interactive within the configured timeout."
+          }
+        ],
+        "isError": true
+      }
+    },
+    {
+      "example": "04-focus-timer",
+      "at": "2026-09-11T13:47:06.834Z",
+      "label": "start actual native timer",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Successfully clicked on the element\n## Latest page snapshot\nuid=1_0 RootWebArea \"专注一会儿\" url=\"chrome-extension://mnmapcdbidjbdmpfdgkdkeoakccpllih/popup.html\"\n  uid=1_1 main\n    uid=1_2 StaticText \"留一点时间，做一件事\"\n    uid=1_3 heading \"专注一会儿\" level=\"1\"\n    uid=1_4 StaticText \"这次专注多久\"\n    uid=1_5 combobox \"这次专注多久\" disableable disabled expandable haspopup=\"menu\" value=\"25 分钟 · 静下心来\"\n      uid=1_6 option \"5 分钟 · 热热身\" selectable value=\"5 分钟 · 热热身\"\n      uid=1_7 option \"15 分钟 · 做件小事\" selectable value=\"15 分钟 · 做件小事\"\n      uid=1_8 option \"25 分钟 · 静下心来\" selectable selected value=\"25 分钟 · 静下心来\"\n    uid=1_9 StaticText \"25:00\"\n    uid=1_10 paragraph live=\"polite\" relevant=\"additions text\"\n      uid=2_0 StaticText \"正在专注，慢慢来。\"\n    uid=1_12 button \"暂停\"\n    uid=1_13 button \"重置\"\n    uid=1_14 button \"刷新状态\"\n    uid=1_15 StaticText \"关掉这个小窗口也会继续计时。到时图标显示 ✓，没有声音或弹窗。电脑休眠时，提醒可能稍晚。\"\n    uid=1_16 StaticText \"计时只留在这台电脑。\"\n"
+          }
+        ]
+      }
+    },
+    {
+      "example": "04-focus-timer",
+      "at": "2026-09-11T13:47:35.284Z",
+      "label": "pause actual timer",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error: No page found"
+          }
+        ],
+        "isError": true
+      }
+    },
+    {
+      "example": "04-focus-timer",
+      "at": "2026-09-11T13:47:40.892Z",
+      "label": "resume actual timer",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error: No page found"
+          }
+        ],
+        "isError": true
+      }
+    },
+    {
+      "example": "04-focus-timer",
+      "at": "2026-09-11T13:47:49.649Z",
+      "label": "reset actual timer",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error: No page found"
+          }
+        ],
+        "isError": true
+      }
+    },
+    {
+      "example": "04-focus-timer",
+      "at": "2026-09-11T13:47:55.178Z",
+      "label": "select 5 minutes through real select change handler",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error: No page found"
+          }
+        ],
+        "isError": true
+      }
+    },
+    {
+      "at": "2026-09-11T13:49:25.176Z",
+      "example": "04-focus-timer",
+      "label": "select public test page",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "## Pages\n1: about:blank\n2: Example Domain (https://example.com/?extension-note-case=one) [selected]\n## Extension Service Workers\nsw-1: chrome-extension://mnmapcdbidjbdmpfdgkdkeoakccpllih/worker.js"
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-11T13:49:30.188Z",
+      "example": "04-focus-timer",
+      "label": "reopen native timer popup",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Extension action triggered for ID mnmapcdbidjbdmpfdgkdkeoakccpllih"
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-11T13:49:30.221Z",
+      "example": "04-focus-timer",
+      "label": "locate popup",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "## Pages\n1: about:blank\n2: Example Domain (https://example.com/?extension-note-case=one) [selected]\n## Extension Service Workers\nsw-1: chrome-extension://mnmapcdbidjbdmpfdgkdkeoakccpllih/worker.js"
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-11T13:49:30.905Z",
+      "example": "04-focus-timer",
+      "label": "locate popup",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "## Pages\n1: about:blank\n2: Example Domain (https://example.com/?extension-note-case=one) [selected]\n## Extension Pages\n5: 专注一会儿 (chrome-extension://mnmapcdbidjbdmpfdgkdkeoakccpllih/popup.html)\n## Extension Service Workers\nsw-1: chrome-extension://mnmapcdbidjbdmpfdgkdkeoakccpllih/worker.js"
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-11T13:49:39.766Z",
+      "example": "04-focus-timer",
+      "label": "real UI pause, resume, reset, choose 5m and start",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Script ran on page and returned:\n```json\n[{\"step\":\"pause\",\"status\":\"已暂停，准备好再继续。\"},{\"step\":\"resume\",\"status\":\"正在专注，慢慢来。\"},{\"step\":\"start 5m\",\"status\":\"正在专注，慢慢来。\",\"stored\":{\"focusTimerV1\":{\"deadline\":1789134879394,\"durationMinutes\":5,\"remainingMs\":300000,\"schemaVersion\":1,\"status\":\"running\"}}}]\n```"
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-11T13:49:46.283Z",
+      "example": "04-focus-timer",
+      "label": "capture native running popup",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "## Latest page snapshot\nuid=3_0 RootWebArea \"专注一会儿\" url=\"chrome-extension://mnmapcdbidjbdmpfdgkdkeoakccpllih/popup.html\"\n  uid=3_1 main\n    uid=3_2 StaticText \"留一点时间，做一件事\"\n    uid=3_3 heading \"专注一会儿\" level=\"1\"\n    uid=3_4 StaticText \"这次专注多久\"\n    uid=3_5 combobox \"这次专注多久\" disableable disabled expandable haspopup=\"menu\" value=\"5 分钟 · 热热身\"\n      uid=3_6 option \"5 分钟 · 热热身\" disableable disabled value=\"5 分钟 · 热热身\"\n      uid=3_7 option \"15 分钟 · 做件小事\" disableable disabled value=\"15 分钟 · 做件小事\"\n      uid=3_8 option \"25 分钟 · 静下心来\" disableable disabled value=\"25 分钟 · 静下心来\"\n    uid=3_9 StaticText \"04:54\"\n    uid=3_10 paragraph live=\"polite\" relevant=\"additions text\"\n      uid=3_11 StaticText \"正在专注，慢慢来。\"\n    uid=3_12 button \"暂停\"\n    uid=3_13 button \"重置\"\n    uid=3_14 button \"刷新状态\"\n    uid=3_15 StaticText \"关掉这个小窗口也会继续计时。到时图标显示 ✓，没有声音或弹窗。电脑休眠时，提醒可能稍晚。\"\n    uid=3_16 StaticText \"计时只留在这台电脑。\"\n"
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-11T13:49:52.111Z",
+      "example": "04-focus-timer",
+      "label": "close popup while timer runs",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "## Pages\n1: about:blank\n2: Example Domain (https://example.com/?extension-note-case=one) [selected]\n## Extension Service Workers\nsw-1: chrome-extension://mnmapcdbidjbdmpfdgkdkeoakccpllih/worker.js"
+          }
+        ]
+      }
+    }
+  ]
+}
