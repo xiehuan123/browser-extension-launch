@@ -45,13 +45,42 @@ class AcceptanceGateTests(unittest.TestCase):
                  "steps": ["Load the extension", "Perform the specified actual browser operation"],
                  "expected": "The observed browser result matches the specified outcome.",
                  "actual": "Recorded observed outcome.", "artifactPaths": ["browser/record.log"],
-                 **({"entry_kind": "native_action"} if scenario == "native_entry" else {})}
+                 **({"entry_kind": "native_action"} if scenario == "native_entry" else {}),
+                 **({"rounds": [{"entry": "Toolbar action", "outcome": "First result"},
+                                {"entry": "Result panel retry button", "outcome": "Second result"}],
+                     "continuation": "Use the visible retry button",
+                     "exit_or_recovery": "Cancel returns to the prior result"}
+                    if scenario == "repeat_use" else {})}
                 for scenario in sorted(gate.REQUIRED_SCENARIOS)
             ],
         }
 
     def tearDown(self):
         self.temporary.cleanup()
+
+    def test_single_success_without_repeat_use_is_rejected(self):
+        self.report["required_scenarios"].remove("repeat_use")
+        self.report["scenarios"] = [s for s in self.report["scenarios"] if s["id"] != "repeat_use"]
+        result = self.check()
+        self.assertFalse(result["gate_passed"])
+        self.assertTrue(any("repeat_use" in error for error in result["errors"]))
+
+    def test_incomplete_repeat_rounds_are_rejected(self):
+        scenario = next(s for s in self.report["scenarios"] if s["id"] == "repeat_use")
+        for rounds in (None, [], [{"entry": "Start", "outcome": "One result"}],
+                       [{"entry": "Start", "outcome": "One"}, {"entry": "", "outcome": "Two"}],
+                       [None, None]):
+            with self.subTest(rounds=rounds):
+                scenario["rounds"] = rounds
+                self.assertFalse(self.check()["gate_passed"])
+
+    def test_missing_continuation_or_recovery_is_rejected(self):
+        scenario = next(s for s in self.report["scenarios"] if s["id"] == "repeat_use")
+        for field in ("continuation", "exit_or_recovery"):
+            with self.subTest(field=field):
+                previous = scenario.pop(field)
+                self.assertFalse(self.check()["gate_passed"])
+                scenario[field] = previous
 
     def write_report(self):
         self.evidence.write_text(gate.json_text(self.report))

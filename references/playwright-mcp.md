@@ -71,7 +71,7 @@ npx -y @playwright/mcp@0.0.80 --config /ABS/PROJECT/playwright-mcp.json
 
 ## 从真实入口验证完整路径
 
-按 [真实验收契约](acceptance.md) 记录候选 SHA-256，以及至少四个必需场景：`install`、`native_entry`、`primary_flow`、`reopen`。
+按 [真实验收契约](acceptance.md) 记录候选 SHA-256，以及至少五个必需场景：`install`、`native_entry`、`primary_flow`、`reopen`、`repeat_use`。最后一项按产品闭环从正常用户路径连续完成两轮，记录继续与退出/恢复，不通过脚本调用内部处理器替代再次操作。
 
 使用当前 MCP 的真实工具逐步执行：加载并核对插件 → 从实际工具栏、原生侧栏、菜单或已定义的命令入口触发 → 完成核心操作 → 观察真实产出 → 关闭并重开适用入口 → 核对状态。保存原始工具结果、截图、导出内容或可复查的其他证据。
 

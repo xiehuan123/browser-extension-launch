@@ -22,7 +22,7 @@ import sys
 
 
 SCHEMA_VERSION = 1
-REQUIRED_SCENARIOS = frozenset(("install", "native_entry", "primary_flow", "reopen"))
+REQUIRED_SCENARIOS = frozenset(("install", "native_entry", "primary_flow", "reopen", "repeat_use"))
 ALLOWED_METHODS = frozenset(("real_browser_tool", "witnessed_manual"))
 ALLOWED_ENTRIES = frozenset((
     "native_action", "context_menu", "keyboard_command",
@@ -260,6 +260,16 @@ def check_acceptance(build_directory, evidence_file):
                 errors.append(f"{scenario_id} 缺少 {field} 的可观察结果。")
         if scenario_id == "native_entry" and scenario.get("entry_kind") not in ALLOWED_ENTRIES:
             errors.append("native_entry 缺少真实入口类型 entry_kind；直接打开 popup.html 或普通标签页不算原生入口。")
+        if scenario_id == "repeat_use":
+            rounds = scenario.get("rounds")
+            if (not isinstance(rounds, list) or len(rounds) < 2
+                    or any(not isinstance(item, dict)
+                           or not nonempty_text(item.get("entry"))
+                           or not nonempty_text(item.get("outcome")) for item in rounds)):
+                errors.append("repeat_use 必须记录至少两轮实际使用，每轮包含 entry 和 outcome。")
+            for field in ("continuation", "exit_or_recovery"):
+                if not nonempty_text(scenario.get(field)):
+                    errors.append(f"repeat_use 缺少 {field}：需记录可发现的继续路径与实际退出或恢复结果。")
         artifacts = scenario.get("artifactPaths")
         if not isinstance(artifacts, list) or not artifacts:
             errors.append(f"{scenario_id} 缺少浏览器证据 artifactPaths。")

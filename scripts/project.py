@@ -20,6 +20,7 @@ SCHEMA_VERSION = 1
 RECORD_DIR = ".extension-launch"
 DEFAULT_E2E_PROVIDER = "playwright-mcp"
 REQUIRED_SKILLS = (
+    ("product-designer", "product_experience", "new_or_changed_user_flow_and_experience_acceptance"),
     ("chrome-extensions", "architecture", "all_projects"),
     ("extension-create", "creation", "new_extension"),
     ("diagnosing-bugs", "debugging", "failure_or_regression"),
@@ -126,9 +127,9 @@ def make_task(definition, goal="live", complexity="undetermined"):
         "前置任务已满足各自关闭条件，证据与当前候选版本一致。"
     )
     required_skills = {
-        "scope": "chrome-extensions；新建插件使用 extension-create；复杂项目首次或配置缺失使用 setup-matt-pocock-skills，使用 to-spec 发布正式主票后再使用 to-tickets；仅外部反馈或旧票待分流时使用 triage。",
+        "scope": "product-designer 定义进入、操作、结果、再次使用、退出与恢复的体验 AC；chrome-extensions；新建插件使用 extension-create；复杂项目首次或配置缺失使用 setup-matt-pocock-skills，使用 to-spec 发布正式主票后再使用 to-tickets；仅外部反馈或旧票待分流时使用 triage。",
         "implementation": "chrome-extensions；新建插件使用 extension-create；故障时使用 diagnosing-bugs；完成后使用 code-review；复杂项目每张实施票必须使用 implement。",
-        "acceptance": "code-review；验收发现故障先使用 diagnosing-bugs，修复后重验；必须通过 Playwright MCP 实际加载插件完成端到端验证。",
+        "acceptance": "product-designer 复核真实连续两轮使用的闭环；code-review 的 Spec 轴检查体验 AC 是否完整；验收发现故障先使用 diagnosing-bugs，修复后重验；必须通过 Playwright MCP 实际加载插件完成端到端验证并记录 repeat_use。",
         "release-preparation": "code-review 审查最终候选；若构建文件变化，使用 Playwright MCP 重验受影响的真实插件路径。",
         "launch-tracking": "若发布或首用检查失败，使用 diagnosing-bugs；实际安装版本仍须完成端到端验证。",
     }[task_type]

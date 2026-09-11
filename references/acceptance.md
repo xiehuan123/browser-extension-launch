@@ -4,6 +4,10 @@
 
 首条功能实现后立即做票内真实检查，版本发布前有独立总验收票。独立指范围、记录与复核分开，不能用实施自述替代。支持代理时让另一代理拿规格、候选包及已验证的真实浏览器能力独立执行；否则主代理另起验收过程，如实记录执行者。
 
+## 使用闭环也是必需场景
+
+按 [产品使用闭环](product-loop.md) 实际执行 `repeat_use`：连续两轮任务，记录可发现的继续路径和退出/恢复。product-designer 复核实际体验，code-review 的 Spec 轴检查 AC 是否漏掉基本路径；复用同批真实操作，不另造重复验收。技术功能通过但使用闭环失败，不得称完整可用。
+
 ## 验收范围与证据复用
 
 先按 [高效交付](efficient-delivery.md) 将 AC 映射到操作及结果，并据改动影响确定复验范围。同一候选、同一次真实操作可同时支持实施票和最终验收，记录引用关系；文档未改变运行包时保留原验收。代码变更后，当前候选必需场景仍须真实执行，历史深测只能单列引用，不改写为当前实测。
@@ -85,11 +89,13 @@ python3 <skill-dir>/scripts/acceptance_gate.py check <build-dir> --evidence <真
 | `candidate` | 当前目录的 `fingerprint` 输出对象，包含全部运行文件及 SHA-256 |
 | `environment` | 实际 `automation_provider`、`browser_name`、`browser_version`、`extension_id`、`installation_type`；默认服务为 `playwright-mcp`，安装方式为 `unpacked`、`store` 或 `enterprise` |
 | `browser_choice` | 使用替代服务时必填；`default_provider: playwright-mcp`、与实际环境一致的 `selected_provider`、具体 `reason`，以及 `user_decision: {status: approved, evidence_path: ...}`；路径必须指向用户明确选择的原始记录，不能以 AI 自述代替 |
-| `required_scenarios` | 至少含 `install`、`native_entry`、`primary_flow`、`reopen`，并加入规格中的其他必需场景编号 |
+| `required_scenarios` | 至少含 `install`、`native_entry`、`primary_flow`、`reopen`、`repeat_use`，并加入规格中的其他必需场景编号 |
 | `scenarios` | 实际场景列表；每项有唯一 `id`、与必需清单一致的布尔 `required`、`status`、`method`、非空步骤数组 `steps`、可观察的 `expected` 和 `actual`、证据数组 `artifactPaths` |
 | 通过场景 | `status: passed`，`method` 必须为 `real_browser_tool` 或 `witnessed_manual`；后者仍须记录实际自动化服务和可核对的原生操作结果，不能豁免服务选择；模拟、静态检查不能使用这些方法值 |
 | `native_entry.entry_kind` | 对应场景对象的 `entry_kind` 为实际入口：`native_action`、`context_menu`、`keyboard_command`、`native_side_panel` 或 `browser_extension_entry` |
 | `artifactPaths` | 相对于真实验收 JSON 所在目录的真实证据文件路径；文件必须存在、非空且位于该目录内，不能指向验收汇总 JSON 自己 |
+
+`repeat_use` 还须包含 `rounds`（至少两项，每项非空 `entry` 和 `outcome`）、`continuation`、`exit_or_recovery`，全部描述真实操作。旧报告缺该场景时不能通过新门禁，但不自动修改旧记录或重测已停止的例子。字段完整不证明体验良好，仍需核对实际 UI 与操作记录。
 
 `reopen` 必须实际关闭并重新打开适用的插件入口，核对按规格应保留或清除的状态；有本地保存承诺则必须核对真实保存内容。跨浏览器重启作为额外必需场景记录，不能用简单重开弹窗替代。
 

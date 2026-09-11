@@ -19,7 +19,7 @@
 本机已验证这套技能与 `diagnosing-bugs` 同级安装，部分带 `disable-model-invocation` 或关闭自动触发。这不是可以省略它们的理由：按用户本次对主编排的明确授权显式定位、读取并执行，不修改它们全局的触发设置。其上游默认的“用户触发技能不再调用用户触发技能”偏好，在本主技能范围内采用本次授权的自动编排适配。
 
 1. **`setup-matt-pocock-skills`：首次或配置缺失时执行。** 读取已有项目约定；没有 tracker 时选该技能原生 Local Markdown 模板。准备 `docs/agents/issue-tracker.md` 及实际需要的 domain/triage 约定，原位维护既有 AGENTS/CLAUDE 区块。已有正确配置不重建。
-2. **`to-spec`：形成并发布规格主工单。** 输入已有需求、决定和代码背景；用户已说清的内容不重复采访。主代理决定可逆的实现与测试方式，将规格发布至已配置 tracker。Local Markdown 的正式路径为 `.scratch/<feature>/spec.md`；真实写入即完成本地发布，不需要 GitHub。保留主票编号/路径及 `ready-for-agent` 状态。
+2. **`to-spec`：形成并发布规格主工单。** 先执行 product-designer，将完整使用闭环和体验 AC 写入输入规格，不能只以技术功能列表拆票。 输入已有需求、决定和代码背景；用户已说清的内容不重复采访。主代理决定可逆的实现与测试方式，将规格发布至已配置 tracker。Local Markdown 的正式路径为 `.scratch/<feature>/spec.md`；真实写入即完成本地发布，不需要 GitHub。保留主票编号/路径及 `ready-for-agent` 状态。
 3. **`to-tickets`：发布子工单及依赖。** 拆票遵循 [高效交付](efficient-delivery.md)：同一机制的多站适配可放在一票，按风险与独立契约划分，不为站点数或文件数重复流程。 输入真实主票。按可演示、可验收的纵向功能切片拆分，每票同时覆盖所需界面、逻辑、数据和检查；不能只拆 UI/API/测试三层。Local Markdown 每票单独保存为 `.scratch/<feature>/issues/<NN>-<slug>.md`，写 `Blocked by`、范围、验收、必要技能、模块和文件所有权。
 4. **`implement`：按前置依赖逐票独立实施。** 主代理自动选择前置完成的票；每个执行者先读该技能、原票和契约，再实现。执行技能要求的 `tdd` 等条件依赖，先在真实行为边界定义检查。派发子代理时明确模块/文件所有权、输入输出、禁止回滚他人改动。只有无依赖且写入范围不冲突的票并行；公共 manifest、共享协议和整合由主代理协调。
 5. **`code-review` + Playwright MCP：逐票收口。** 必须执行真实双轴审查及当前版本的端到端检查。同一候选可将就绪票批量审查和验收，逐票关联实际覆盖的 AC、证据与结论；不跳过依赖。故障立即进入 `diagnosing-bugs`，修复后复验。把技能调用记录、变更版本、浏览器证据及 gate 报告回填同一票，才关闭该票并释放依赖。

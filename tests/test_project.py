@@ -41,7 +41,7 @@ class ProjectRecordsTests(unittest.TestCase):
         self.assertEqual(state["workflow"]["complex_chain"], [])
         self.assertEqual(state["workflow"]["parent_ticket"]["status"], "not_published")
         stages = state["workflow"]["required_skill_stages"]
-        self.assertTrue({"chrome-extensions", "extension-create", "diagnosing-bugs", "code-review"}
+        self.assertTrue({"product-designer", "chrome-extensions", "extension-create", "diagnosing-bugs", "code-review"}
                         <= {stage["skill"] for stage in stages})
         self.assertTrue(all(stage["status"] == "not_executed" and not stage["read_evidence"]
                             and not stage["execution_evidence"] for stage in stages))
@@ -216,13 +216,14 @@ class ProjectRecordsTests(unittest.TestCase):
         for directory, filename, name in (("provider-bundle", "skill.md", "chrome-extensions"),
                                           ("extension-create", "SKILL.md", "Extension-Create"),
                                           ("misc", "Skill.md", "diagnosing-bugs"),
-                                          ("code-review", "SKILL.md", "code-review")):
+                                          ("code-review", "SKILL.md", "code-review"),
+                                          ("product-designer", "SKILL.md", "product-designer")):
             metadata = skills / directory / filename
             metadata.parent.mkdir(parents=True)
             metadata.write_text(f"---\nname: '{name}'\ndescription: fixture\n---\n# Test fixture")
         report = project.doctor(self.root, [skills])
         indexed = {entry["skill"]: entry for entry in report["required_skills"]}
-        for name in ("chrome-extensions", "extension-create", "diagnosing-bugs", "code-review"):
+        for name in ("product-designer", "chrome-extensions", "extension-create", "diagnosing-bugs", "code-review"):
             self.assertEqual(indexed[name]["status"], "detected")
             self.assertEqual(indexed[name]["invocation"], "unverified")
             self.assertEqual(indexed[name]["read_evidence"], [])

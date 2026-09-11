@@ -10,6 +10,8 @@
 
 重要问题先给具体建议和代价，再问实际选择。决定记录：编号、问题、回答或暂定方案、依据（用户原话/项目约定/AI假设）、影响的规格和验收、替代哪个旧决定。明确答案直接采用，AI 建议保留暂定身份。
 
+新建/改变使用流程先执行 product-designer，按 [产品使用闭环](product-loop.md) 将首次到再次使用、退出和恢复写入同一规格，形成体验 AC，再进行工单拆分。基本动作由 AI 决策，重要体验取舍才询问；不把所有设计问题交给新手。
+
 规格包含一句话用途、用户故事、范围内外、入口到结果、失败时保留什么、数据及费用、验收、未决事项。信息足够就开始，不制造额外确认关卡。新功能先更新范围和依赖再实现。
 
 ## 文件和权威来源
@@ -36,7 +38,7 @@
 
 模拟测试或包检查通过不能把实施票推进为完成。必须默认使用 Playwright MCP 加载实际产物并完成原生入口端到端验证；环境不支持时按依赖参考询问安装/启用或替代选择，未取得选择不能跳过或静默换工具。真实功能失败则必须执行 diagnosing-bugs 复现、诊断、修复及复验；受控加载工具未就绪则将验收关卡及依赖交付设为 `blocked` 并继续修通，未经用户选择不切换日常 Chrome。本人仅处理确实无法自动化的原生环节，给出当前一步后核实结果并接回验证，不能仅转交人工清单就关闭主任务。已有测试授权持续有效，不增加常规批准票。
 
-任务证据须链接当前 `candidate` 指纹、真实验收 JSON 和新的 `gate-report.json`。验收 JSON 至少覆盖 `install`、`native_entry`、`primary_flow`、`reopen`；按 [验收参考](acceptance.md) 执行 `acceptance_gate.py check BUILD_DIR --evidence JSON --report NEW_PATH`。仅返回 `gate_passed: true` 可满足门禁条件，静态包报告不充当该报告；该命令不代替主代理回填任务状态。
+任务证据须链接当前 `candidate` 指纹、真实验收 JSON 和新的 `gate-report.json`。验收 JSON 至少覆盖 `install`、`native_entry`、`primary_flow`、`reopen`、`repeat_use`；按 [验收参考](acceptance.md) 执行 `acceptance_gate.py check BUILD_DIR --evidence JSON --report NEW_PATH`。仅返回 `gate_passed: true` 可满足门禁条件，静态包报告不充当该报告；该命令不代替主代理回填任务状态。
 
 ## 版本与审查
 
