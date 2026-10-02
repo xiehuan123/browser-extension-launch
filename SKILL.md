@@ -78,8 +78,6 @@ python3 <skill-dir>/scripts/acceptance_gate.py check <build-dir> --evidence <真
 
 内置 [参考模板](assets/starter/chrome-mv3/manifest.json) 用于阅读或接手已有样例，不替代新建项目必须执行的 `extension-create`。已有项目不复制覆盖。
 
-另外提供 [5 个实现例子](examples/README.md)，每个包含 `extension/`、`conversation.md` 和 `records/`。按需求只读相关例子；会话区分场景输入与实际执行，不把模拟检查或场景角色当真实用户验收。例子只有通过当前版本真实验收及门禁后才能列为“已完成可用例子”。用户要求保存演练时，按任务参考中的示例归档约定整理。
-
 ## 按上下文触发发布协助
 
 只有上下文已明确用户要商店发布/上线时，才提醒 Google 账号、开发者注册、首次 5 美元注册费和付款页支持的国际线上支付卡等准备事项；不是固定开场阶段，不因技能名称或默认 goal=live 推断用户要注册付款。按 [发布与维护](references/publishing.md) 在内置浏览器协助填写用户已提供或已明确采用的名称、描述、图片和宣传资料。素材生成不可用时停在素材步骤，请用户上传后再继续，不能用占位图通过。
