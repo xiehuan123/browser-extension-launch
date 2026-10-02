@@ -1,6 +1,6 @@
 {
   "name": "browser-extension-launch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Agent Skill for building, testing, and publishing Chrome extensions from a plain-language idea.",
   "license": "MIT",
   "type": "module",
@@ -11,6 +11,7 @@
     "SKILL.md",
     "README.md",
     "README.zh-CN.md",
+    "CHANGELOG.md",
     "LICENSE",
     "使用说明.md",
     "agents/",
