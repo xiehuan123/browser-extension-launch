@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xiehuan123.github.io/browser-extension-launch/sitemap.xml

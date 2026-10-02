@@ -1,0 +1,48 @@
+{
+  "name": "browser-extension-launch",
+  "version": "1.0.0",
+  "description": "Agent Skill for building, testing, and publishing Chrome extensions from a plain-language idea.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "browser-extension-launch": "bin/install.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE",
+    "使用说明.md",
+    "agents/",
+    "assets/",
+    "references/",
+    "scripts/",
+    "bin/"
+  ],
+  "scripts": {
+    "test": "python3 -m unittest discover -s tests -v && node --test tests/installer.test.mjs",
+    "prepack": "npm test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiehuan123/browser-extension-launch.git"
+  },
+  "homepage": "https://xiehuan123.github.io/browser-extension-launch/",
+  "bugs": {
+    "url": "https://github.com/xiehuan123/browser-extension-launch/issues"
+  },
+  "keywords": [
+    "agent-skill",
+    "browser-extension",
+    "chrome-extension",
+    "codex",
+    "manifest-v3",
+    "playwright"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

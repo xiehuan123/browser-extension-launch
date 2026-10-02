@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Browser Extension Launch | Build and Ship Chrome Extensions</title>
+    <meta name="description" content="An open-source Agent Skill that turns a plain-language idea into a tested Chrome extension, release package, and Chrome Web Store submission workflow.">
+    <meta name="theme-color" content="#0c5c45">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://xiehuan123.github.io/browser-extension-launch/">
+    <link rel="alternate" hreflang="en" href="https://xiehuan123.github.io/browser-extension-launch/">
+    <link rel="alternate" hreflang="zh-CN" href="https://xiehuan123.github.io/browser-extension-launch/zh/">
+    <link rel="alternate" hreflang="x-default" href="https://xiehuan123.github.io/browser-extension-launch/">
+    <link rel="icon" href="assets/icon-128.png" sizes="128x128" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Browser Extension Launch">
+    <meta property="og:description" content="Build, test, and prepare Chrome extensions for release from a plain-language idea.">
+    <meta property="og:url" content="https://xiehuan123.github.io/browser-extension-launch/">
+    <meta property="og:image" content="https://xiehuan123.github.io/browser-extension-launch/assets/icon-128.png">
+    <meta property="og:image:width" content="128">
+    <meta property="og:image:height" content="128">
+    <meta property="og:image:alt" content="Browser Extension Launch logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Browser Extension Launch">
+    <meta name="twitter:description" content="An open-source Agent Skill for building and shipping Chrome extensions.">
+    <meta name="twitter:image" content="https://xiehuan123.github.io/browser-extension-launch/assets/icon-128.png">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "Browser Extension Launch",
+        "description": "An Agent Skill for building, testing, and preparing Chrome extensions for publication from a plain-language request.",
+        "codeRepository": "https://github.com/xiehuan123/browser-extension-launch",
+        "url": "https://xiehuan123.github.io/browser-extension-launch/",
+        "license": "https://opensource.org/license/mit",
+        "programmingLanguage": ["Markdown", "Python", "JavaScript"],
+        "runtimePlatform": "Codex and compatible Agent Skill hosts",
+        "author": { "@type": "Person", "name": "xiehuan123", "url": "https://github.com/xiehuan123" }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Browser Extension Launch home">
+        <img src="assets/icon-128.png" width="36" height="36" alt="">
+        <span>Browser Extension Launch</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#workflow">Workflow</a>
+        <a href="#projects">Projects</a>
+        <a href="#install">Install</a>
+        <a href="zh/" lang="zh-CN">中文</a>
+      </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Open-source Agent Skill</p>
+          <h1>Browser Extension Launch</h1>
+          <p class="lede">Turn a plain-language idea into a working Chrome extension, test it through the real browser entry point, and prepare it for the Chrome Web Store.</p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/xiehuan123/browser-extension-launch">View on GitHub</a>
+            <a class="button secondary" href="#install">Install the skill</a>
+          </div>
+          <ul class="proof">
+            <li>Local-first tasks</li>
+            <li>Real-browser acceptance</li>
+            <li>Release-state tracking</li>
+          </ul>
+        </div>
+        <figure class="terminal">
+          <figcaption>Start with a result, not a framework</figcaption>
+          <pre tabindex="0"><code>Use $browser-extension-launch to build
+a Chrome extension that saves selected
+sentences and keeps them after reopening.
+
+I do not program. Start with a local version.</code></pre>
+        </figure>
+      </section>
+
+      <section class="workflow" id="workflow">
+        <div class="section-heading">
+          <p class="eyebrow">One guided path</p>
+          <h2>From idea to a verifiable release</h2>
+          <p>The user makes product decisions. The agent manages implementation details, evidence, and recovery.</p>
+        </div>
+        <ol class="steps">
+          <li><strong>Describe the outcome.</strong><span>The skill converts everyday language into a small first version and concrete acceptance criteria.</span></li>
+          <li><strong>Try the working extension.</strong><span>The current package is loaded through its native browser entry point and used twice, including reopen behavior when relevant.</span></li>
+          <li><strong>Prepare the release.</strong><span>Source, ZIP, permissions, privacy disclosures, listing copy, and actual submission states remain traceable.</span></li>
+        </ol>
+      </section>
+
+      <section class="projects" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">Built with the workflow</p>
+          <h2>Three real Chrome extension projects</h2>
+          <p>Each repository includes a loadable extension, development history, final report, and documented verification boundaries.</p>
+        </div>
+        <div class="project-grid">
+          <article>
+            <p class="project-index">01</p>
+            <h3>Direct Link</h3>
+            <figure class="product-shot">
+              <img src="assets/direct-link-panel.png" alt="Direct Link extension panel with a global switch and individual controls for Juejin, Zhihu, and CSDN" width="340" height="429">
+              <figcaption>Verified extension control panel</figcaption>
+            </figure>
+            <p>Restores redirect links on Juejin, Zhihu, and CSDN with global and per-site controls.</p>
+            <a href="https://github.com/xiehuan123/direct-link">Open repository<span class="visually-hidden"> for Direct Link</span></a>
+          </article>
+          <article>
+            <p class="project-index">02</p>
+            <h3>Page Color Picker</h3>
+            <figure class="product-shot wide">
+              <img src="assets/page-color-picker-result.png" alt="Page Color Picker showing a sampled teal pixel with HEX, RGB, and HSL values over a real test page" width="2000" height="2400">
+              <figcaption>Real pixel sampled from the visible page</figcaption>
+            </figure>
+            <p>Samples visible page pixels, converts color formats, copies values, and keeps a local color history.</p>
+            <a href="https://github.com/xiehuan123/page-color-picker">Open repository<span class="visually-hidden"> for Page Color Picker</span></a>
+          </article>
+          <article>
+            <p class="project-index">03</p>
+            <h3>Quiet Web</h3>
+            <figure class="product-shot">
+              <img src="assets/quiet-web-panel.png" alt="Quiet Web extension panel showing protection enabled, two hidden elements, and a pause-site control" width="344" height="520">
+              <figcaption>Current-page protection status</figcaption>
+            </figure>
+            <p>Blocks a bounded set of ad requests and offers reversible cleanup, site pause, and an allowlist.</p>
+            <a href="https://github.com/xiehuan123/quiet-web">Open repository<span class="visually-hidden"> for Quiet Web</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="install" id="install">
+        <div class="section-heading">
+          <p class="eyebrow">Install</p>
+          <h2>Add the skill to Codex</h2>
+          <p>The installer refuses to overwrite an existing copy unless you explicitly request replacement. Replacement creates a timestamped backup first.</p>
+        </div>
+        <div class="code-block">
+          <p>npm</p>
+          <pre tabindex="0"><code>npx browser-extension-launch install</code></pre>
+        </div>
+        <div class="code-block">
+          <p>Git</p>
+          <pre tabindex="0"><code>git clone https://github.com/xiehuan123/browser-extension-launch.git \
+  ~/.codex/skills/browser-extension-launch</code></pre>
+        </div>
+        <p class="note">Start a new agent session after installation, then invoke <code>$browser-extension-launch</code>.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>MIT licensed. Built for transparent, evidence-backed browser extension delivery.</p>
+      <nav aria-label="Footer">
+        <a href="https://github.com/xiehuan123/browser-extension-launch">Source</a>
+        <a href="https://www.npmjs.com/package/browser-extension-launch">npm</a>
+        <a href="zh/" lang="zh-CN">中文</a>
+      </nav>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://xiehuan123.github.io/browser-extension-launch/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xiehuan123.github.io/browser-extension-launch/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://xiehuan123.github.io/browser-extension-launch/zh/" />
+  </url>
+  <url>
+    <loc>https://xiehuan123.github.io/browser-extension-launch/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xiehuan123.github.io/browser-extension-launch/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://xiehuan123.github.io/browser-extension-launch/zh/" />
+  </url>
+</urlset>

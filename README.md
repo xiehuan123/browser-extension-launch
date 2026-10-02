@@ -1,73 +1,85 @@
-# 浏览器插件一站式上线
+# Browser Extension Launch
 
-`browser-extension-launch` 是一个面向非技术用户的 Agent Skill：用户只需说明想做什么、试用第一版并确认发布安排，AI 负责组织浏览器插件的需求、开发、真实浏览器检查、发布材料和后续更新。
+[简体中文](README.zh-CN.md)
 
-## 能做什么
+`browser-extension-launch` is an Agent Skill for people without a programming background. The user explains what they want, tries the first working version, and confirms the release plan. The agent organizes product decisions, extension development, real-browser acceptance, store materials, and future updates.
 
-- 从一句自然语言需求开始制作 Chrome Manifest V3 插件。
-- 默认在本地保存任务与进度，不要求 GitHub。
-- 按需调用产品设计、Chrome 扩展开发、脚手架、排错和代码审查 skills。
-- 使用 Playwright MCP 对当前插件产物执行真实入口与重复使用检查。
-- 生成和检查发布包，协助准备 Chrome Web Store 文案、权限说明和隐私材料。
-- 明确区分源码完成、真实验收、提交审核和商店上线。
+## What It Does
 
-## 真实项目案例
+- Builds Chrome Manifest V3 extensions from a plain-language request.
+- Keeps tasks and progress locally by default, without requiring GitHub.
+- Coordinates product design, Chrome extension development, scaffolding, debugging, and code review skills when needed.
+- Uses Playwright MCP to test the current extension package through its native browser entry point and across repeated use.
+- Builds and checks release packages and helps prepare Chrome Web Store copy, permission explanations, and privacy disclosures.
+- Keeps source completion, real acceptance, review submission, and public store availability as separate states.
 
-下面三个 Chrome 插件由独立 Codex CLI 会话使用本 skill 的流程开发，均完成了真实浏览器验收和规范／需求两部分审查。仓库包含源码、可加载的 `extension/`、最终报告和开发会话记录。
+## Real Projects Built With This Skill
 
-| 项目 | 功能 | 已验证范围 |
+The following Chrome extensions were developed in separate Codex CLI sessions using this skill's workflow. Each completed real-browser acceptance plus separate standards and specification reviews. Their repositories include source code, a loadable `extension/` directory, a final report, and development session records.
+
+| Project | What it does | Verified scope |
 | --- | --- | --- |
-| [外链直达](https://github.com/xiehuan123/direct-link) | 自动还原掘金、知乎和 CSDN 的中转链接，支持总开关与分站开关 | 三站真实中转 URL、动态来源链接还原、开关关闭与弹窗重开 |
-| [网页取色](https://github.com/xiehuan123/page-color-picker) | 从当前可见网页截图取色，转换 HEX/RGB/HSL，复制并保存近期颜色 | 实际像素取色、格式与复制、历史连续操作、扩展重载后保留 |
-| [广告净化](https://github.com/xiehuan123/quiet-web) | 拦截有限范围的常见广告请求，支持页面隐藏、站点暂停和允许清单 | 网络拦截与放行、广告正例与保护对象、站点控制、浏览器重开后保留设置 |
+| [Direct Link](https://github.com/xiehuan123/direct-link) | Restores redirect links on Juejin, Zhihu, and CSDN, with global and per-site controls | Real redirect URLs on all three sites, dynamic source-link restoration, disabled-state behavior, and popup reopen |
+| [Page Color Picker](https://github.com/xiehuan123/page-color-picker) | Samples pixels from the visible page, converts HEX/RGB/HSL, copies values, and stores recent colors | Real pixel sampling, formats and clipboard flow, repeated history operations, and persistence after extension reload |
+| [Quiet Web](https://github.com/xiehuan123/quiet-web) | Blocks a bounded set of common ad requests and provides reversible page cleanup, site pause, and an allowlist | Network block/allow behavior, ad positives and protected content, site controls, and settings retained after browser restart |
 
-这些案例验证的是各仓库报告中列明的范围，不代表覆盖所有网站、所有广告或网站未来改版。它们目前是源码和本地安装包项目，尚未提交 Chrome Web Store。
+Verification applies only to the scope documented in each repository. It does not claim support for every website, every advertisement, or future site redesigns. These projects currently provide source code and local installation packages; they have not been submitted to the Chrome Web Store.
 
-## 安装
+## Install
 
-将整个仓库放入所用 Agent 支持的 skills 目录，并保持 `SKILL.md` 位于技能根目录。
+With npm:
 
-Codex 的个人安装示例：
+```bash
+npx browser-extension-launch install
+```
+
+Or clone directly into the Codex personal skills directory:
 
 ```bash
 git clone https://github.com/xiehuan123/browser-extension-launch.git ~/.codex/skills/browser-extension-launch
 ```
 
-重新打开会话后，可以直接说：
+Start a new session, then ask:
 
 ```text
-使用 $browser-extension-launch，帮我做一个浏览器插件：选中网页上的一句话就能收藏，关掉再打开还能找到。我不会编程，先做出来给我自己用。
+Use $browser-extension-launch to build a browser extension that saves a sentence I select on a webpage and keeps it after I close and reopen the browser. I do not program, and I want a local version first.
 ```
 
-完整的新手说明见[使用说明](使用说明.md)。不同 Agent 的 skill 安装目录、浏览器工具和权限模型可能不同，请按对应宿主调整。
+See the [Chinese user guide](使用说明.md) for the full beginner workflow. Skill locations, browser tools, and permission models differ between agent hosts, so adapt installation to the target host.
 
-## 目录
+## Repository Layout
 
 ```text
-SKILL.md          技能入口
-agents/           Codex 界面元数据
-references/       开发、验收、发布及依赖说明
-scripts/          项目记录、验收门禁和发布包检查工具
-tests/            脚本测试
-assets/           Chrome MV3 参考模板
+SKILL.md          Skill entry point
+agents/           Codex interface metadata
+references/       Development, acceptance, publishing, and dependency guidance
+scripts/          Project records, acceptance gate, and release package checks
+tests/            Script and installer tests
+assets/           Chrome MV3 starter reference
+docs/             English and Chinese GitHub Pages site
 ```
 
-## 开发检查
+## Development Checks
 
-脚本使用 Python 3.9+ 标准库。运行测试：
+The helper scripts use Python 3.9+ and the standard library. Node.js 18+ is used for the npm installer tests.
 
 ```bash
-python3 -m unittest discover -s tests -v
+npm test
+npm pack --dry-run
 ```
 
-验证 skill 基本结构：
+Validate the basic skill structure with:
 
 ```bash
 python3 /path/to/skill-creator/scripts/quick_validate.py .
 ```
 
-结构校验脚本需要 PyYAML。浏览器插件的实际交付还需要本 skill 所列的必需子技能与可加载扩展的 Playwright MCP 环境。
+The structure validator requires PyYAML. Delivering an actual browser extension also requires the mandatory child skills listed by this skill and a Playwright MCP environment capable of loading extensions.
 
-## 许可证
+## Website
+
+The project website is published at [xiehuan123.github.io/browser-extension-launch](https://xiehuan123.github.io/browser-extension-launch/).
+
+## License
 
 [MIT](LICENSE)
