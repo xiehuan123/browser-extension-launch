@@ -31,6 +31,9 @@ REQUIRED_SKILLS = (
     ("triage", "feedback_triage", "external_feedback_or_existing_tickets_need_triage"),
     ("implement", "ticket_implementation", "each_complex_project_ticket"),
 )
+PORTABLE_FALLBACKS = {
+    "product-designer": "references/product-loop.md",
+}
 COMPLEX_CHAIN = ("setup-matt-pocock-skills", "to-spec", "publish-parent-ticket", "to-tickets", "implement")
 METHODS = {
     "dependencies": "references/dependencies.md",
@@ -127,9 +130,9 @@ def make_task(definition, goal="live", complexity="undetermined"):
         "前置任务已满足各自关闭条件，证据与当前候选版本一致。"
     )
     required_skills = {
-        "scope": "product-designer 定义进入、操作、结果、再次使用、退出与恢复的体验 AC；chrome-extensions；新建插件使用 extension-create；复杂项目首次或配置缺失使用 setup-matt-pocock-skills，使用 to-spec 发布正式主票后再使用 to-tickets；仅外部反馈或旧票待分流时使用 triage。",
+        "scope": "优先由 product-designer 定义进入、操作、结果、再次使用、退出与恢复的体验 AC；当前宿主没有该技能时执行 references/product-loop.md portable fallback 并记录。使用 chrome-extensions；新建插件使用 extension-create；复杂项目首次或配置缺失使用 setup-matt-pocock-skills，使用 to-spec 发布正式主票后再使用 to-tickets；仅外部反馈或旧票待分流时使用 triage。",
         "implementation": "chrome-extensions；新建插件使用 extension-create；故障时使用 diagnosing-bugs；完成后使用 code-review；复杂项目每张实施票必须使用 implement。",
-        "acceptance": "product-designer 复核真实连续两轮使用的闭环；code-review 的 Spec 轴检查体验 AC 是否完整；验收发现故障先使用 diagnosing-bugs，修复后重验；必须通过 Playwright MCP 实际加载插件完成端到端验证并记录 repeat_use。",
+        "acceptance": "优先由 product-designer 复核真实连续两轮使用的闭环；缺失时执行 product-loop portable fallback。code-review 的 Spec 轴检查体验 AC 是否完整；验收发现故障先使用 diagnosing-bugs，修复后重验；必须通过已核实的受控浏览器工具实际加载插件完成端到端验证并记录 repeat_use。",
         "release-preparation": "code-review 审查最终候选；若构建文件变化，使用 Playwright MCP 重验受影响的真实插件路径。",
         "launch-tracking": "若发布或首用检查失败，使用 diagnosing-bugs；实际安装版本仍须完成端到端验证。",
     }[task_type]
@@ -530,7 +533,9 @@ def doctor(project, skills_dirs=()):
             "status": "detected" if matches else "missing",
             "source_paths": [item["source_path"] for item in matches],
             "host_activation": "unverified", "invocation": "unverified",
-            "read_evidence": [], "execution_evidence": [], "bundled_substitute_allowed": False,
+            "read_evidence": [], "execution_evidence": [],
+            "bundled_substitute_allowed": name in PORTABLE_FALLBACKS,
+            "portable_fallback": PORTABLE_FALLBACKS.get(name),
         })
     return {
         "schema_version": SCHEMA_VERSION, "checked_at": now(), "mode": "read_only_detection",
@@ -547,8 +552,8 @@ def doctor(project, skills_dirs=()):
         "overall": "requires_runtime_verification", "ready_to_develop": None,
         "notes": [
             "检测到命令或 SKILL.md 不代表软件可运行、技能已生效或浏览器已连接。",
-            "适用的必需 skills 缺失或未实际执行时不能用包内说明替代；detected 仍须记录读取及执行证据。",
-            "Playwright MCP 安装/加载插件能力必须实测；不支持时请用户选择安装/启用或推荐替代，不能静默改用其他工具。",
+            "适用的必需 skills 缺失时先通过当前宿主或 Skill CLI 补齐；只有 portable_fallback 非空时才能执行包内等价流程，并须记录。",
+            "受控浏览器工具加载插件和操作原生入口的能力必须实测；Playwright MCP 不支持时请用户选择安装/启用或经核实的替代，不能静默换工具。",
             "Node/npm 是否必需取决于项目模板；纯 JavaScript 模板可以不需要。",
             "下一步由宿主验证当前任务所需能力；本检查不安装软件、不读取凭证、不改项目状态。",
         ],

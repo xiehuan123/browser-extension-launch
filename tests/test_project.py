@@ -205,7 +205,14 @@ class ProjectRecordsTests(unittest.TestCase):
         self.assertEqual(found["host_activation"], "unverified")
         self.assertEqual(found["invocation"], "unverified")
         self.assertTrue(all(item["status"] == "missing" for item in result["required_skills"]))
-        self.assertTrue(all(not item["bundled_substitute_allowed"] for item in result["required_skills"]))
+        fallbacks = {item["skill"]: item for item in result["required_skills"]}
+        self.assertTrue(fallbacks["product-designer"]["bundled_substitute_allowed"])
+        self.assertEqual(fallbacks["product-designer"]["portable_fallback"], "references/product-loop.md")
+        self.assertTrue(all(
+            not item["bundled_substitute_allowed"]
+            for item in result["required_skills"]
+            if item["skill"] != "product-designer"
+        ))
         self.assertIsNone(result["ready_to_develop"])
         self.assertEqual(result["overall"], "requires_runtime_verification")
         self.assertNotIn("do-not-read", project.dump(result))

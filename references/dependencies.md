@@ -1,6 +1,6 @@
-# 必需技能、安装来源和 Playwright MCP
+# 必需能力、子技能来源和浏览器工具
 
-这是强制依赖编排。包内开发、排错、审查参考只补充项目约定，不能代替以下技能的实际执行。当前阶段缺必需技能时先补齐，不把“已有同等方法”当作已调用。
+先读 [Agent 兼容说明](host-compatibility.md)。这是跨宿主依赖编排：优先执行下面的命名技能；缺失时按核实来源用 Skill CLI 或宿主安装器补齐。只有兼容说明明确允许的 portable fallback 或经核对覆盖同一能力的宿主原生技能可以替代，必须记录真实来源与差异，不能冒充命名技能已执行。
 
 ## 哪些节点必须用什么
 
@@ -11,7 +11,7 @@
 | 初始化插件 | extension-create | 每个新项目；已有项目记录已有脚手架，不重复初始化 |
 | 可复现故障、运行或验收失败 | diagnosing-bugs | 一旦发生就进入完整诊断循环，不能用短排错段落替代 |
 | 实施票与候选版本审查 | code-review | 提供真实比较基线与规格，执行两个独立审查维度 |
-| 真实端到端验收 | Playwright MCP | 默认必需加载实际插件；不支持时必须询问安装/启用或替代选择 |
+| 真实端到端验收 | 受控浏览器工具；首选 Playwright MCP | 必须加载实际插件并操作原生入口；不支持时必须询问安装/启用或替代选择 |
 | 复杂项目配置及工单 | setup-matt-pocock-skills、to-spec、to-tickets、implement | 主代理自行判定复杂后强制，完整顺序见 complex-workflow.md |
 | 工程链的条件依赖 | tdd、triage、domain-modeling 等 | 按实际子技能触发条件执行；triage 不加在每张新就绪票前 |
 
@@ -24,7 +24,7 @@ product-designer 在上表节点必需执行，具体见 [产品使用闭环](pr
 - chrome-extensions：GoogleChrome/modern-web-guidance，skills/chrome-extensions，Apache-2.0。
 - extension-create：quangpl/browser-extension-skills，skills/extension-create，MIT。
 - 六个工程主链技能：mattpocock/skills，skills/engineering/<name>，MIT。本地部分技能与所记录上游版本不同，分别保存本地核查哈希与上游哈希，不伪称本地安装于该提交。
-- product-designer：已核实宿主安装的实际入口及哈希，来源未核实为公开仓库，不能臆造下载地址。优先复用宿主版本；缺失时查宿主技能目录或已核实安装源，仍缺失则明确阻塞产品设计节点，不拿本文替代技能。
+- product-designer：已核实部分宿主安装的实际入口及哈希，来源未核实为公开仓库，不能臆造下载地址。优先复用宿主版本；缺失时按兼容说明执行 `product-loop.md` portable fallback，并明确记录没有运行命名技能。
 - Playwright MCP：microsoft/playwright-mcp / @playwright/mcp，固定参考版本及配置见 [Playwright MCP](playwright-mcp.md)。它是执行工具，不是安装一个同名 SKILL.md 就可用。
 
 ## 查找、安装、读取和执行分开

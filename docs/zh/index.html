@@ -59,7 +59,7 @@
             <a class="button secondary" href="#install">安装技能</a>
           </div>
           <ul class="proof">
-            <li>本地任务记录</li>
+            <li>支持 Skill CLI</li>
             <li>真实浏览器检查</li>
             <li>发布状态清晰</li>
           </ul>
@@ -103,13 +103,16 @@ Chrome 插件：选中网页上的一句话就能收藏，
       <section class="install" id="install">
         <div class="section-heading">
           <p class="eyebrow">安装</p>
-          <h2>把技能加入 Codex</h2>
-          <p>安装器默认不会覆盖已有版本。只有明确使用 <code>--replace</code> 时，才会先备份旧版本再安装。</p>
+          <h2>把技能加入常用 Agent</h2>
+          <p>已对 Codex、Claude Code、Cursor、GitHub Copilot 和 OpenCode 完成安装验证。Skill CLI 会识别根目录的技能，并为选择的 Agent 安装完整目录。</p>
         </div>
-        <div class="code-block"><p>npm</p><pre tabindex="0"><code>npx browser-extension-launch install</code></pre></div>
+        <div class="code-block"><p>Skill CLI</p><pre tabindex="0"><code>npx skills add xiehuan123/browser-extension-launch \
+  --skill browser-extension-launch \
+  --agent codex claude-code cursor github-copilot opencode</code></pre></div>
+        <div class="code-block"><p>npm 安装器</p><pre tabindex="0"><code>npx browser-extension-launch install</code></pre></div>
         <div class="code-block"><p>Git</p><pre tabindex="0"><code>git clone https://github.com/xiehuan123/browser-extension-launch.git \
   ~/.codex/skills/browser-extension-launch</code></pre></div>
-        <p class="note">安装后开启新会话，再调用 <code>$browser-extension-launch</code>。</p>
+        <p class="note">命令增加 <code>-g</code> 可安装到当前用户目录。真实交付还要求 Agent 能管理项目文件、运行本地命令，并连接可加载插件的受控浏览器工具。</p>
       </section>
     </main>
 

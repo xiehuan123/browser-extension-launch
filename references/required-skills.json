@@ -139,14 +139,15 @@
     {
       "name": "product-designer",
       "required_when": "new_or_changed_user_flow_and_experience_acceptance",
-      "bundled_substitute_allowed": false,
+      "bundled_substitute_allowed": true,
       "source": {
         "kind": "host-installed",
         "entry": "product-designer/SKILL.md",
         "upstream_status": "not_verified"
       },
       "verified_local_entry_sha256": "d0995fcc2a4accdb7df4a47d01a7263af6423298db95b76f8eb186a7b95caf74",
-      "missing_policy": "resolve verified host or installer source; otherwise block design stage, never invent repository"
+      "portable_fallback": "product-loop.md",
+      "missing_policy": "prefer verified host skill; otherwise execute and record the bundled product-loop portable fallback, never invent a repository"
     }
   ]
 }

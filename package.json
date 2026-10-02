@@ -36,11 +36,13 @@
   },
   "keywords": [
     "agent-skill",
+    "agent-skills",
     "browser-extension",
     "chrome-extension",
     "codex",
     "manifest-v3",
-    "playwright"
+    "playwright",
+    "skills-cli"
   ],
   "publishConfig": {
     "access": "public"

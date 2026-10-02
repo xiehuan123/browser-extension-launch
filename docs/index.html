@@ -35,7 +35,7 @@
         "url": "https://xiehuan123.github.io/browser-extension-launch/",
         "license": "https://opensource.org/license/mit",
         "programmingLanguage": ["Markdown", "Python", "JavaScript"],
-        "runtimePlatform": "Codex and compatible Agent Skill hosts",
+        "runtimePlatform": "Codex, Claude Code, Cursor, GitHub Copilot, OpenCode, and compatible Agent Skill hosts",
         "author": { "@type": "Person", "name": "xiehuan123", "url": "https://github.com/xiehuan123" }
       }
     </script>
@@ -66,7 +66,7 @@
             <a class="button secondary" href="#install">Install the skill</a>
           </div>
           <ul class="proof">
-            <li>Local-first tasks</li>
+          <li>Skill CLI compatible</li>
             <li>Real-browser acceptance</li>
             <li>Release-state tracking</li>
           </ul>
@@ -137,11 +137,17 @@ I do not program. Start with a local version.</code></pre>
       <section class="install" id="install">
         <div class="section-heading">
           <p class="eyebrow">Install</p>
-          <h2>Add the skill to Codex</h2>
-          <p>The installer refuses to overwrite an existing copy unless you explicitly request replacement. Replacement creates a timestamped backup first.</p>
+          <h2>Add the skill to your agent</h2>
+          <p>Installation is verified with Codex, Claude Code, Cursor, GitHub Copilot, and OpenCode. Skill CLI discovers the root skill and installs the complete folder for each selected agent.</p>
         </div>
         <div class="code-block">
-          <p>npm</p>
+          <p>Skill CLI</p>
+          <pre tabindex="0"><code>npx skills add xiehuan123/browser-extension-launch \
+  --skill browser-extension-launch \
+  --agent codex claude-code cursor github-copilot opencode</code></pre>
+        </div>
+        <div class="code-block">
+          <p>npm installer</p>
           <pre tabindex="0"><code>npx browser-extension-launch install</code></pre>
         </div>
         <div class="code-block">
@@ -149,7 +155,7 @@ I do not program. Start with a local version.</code></pre>
           <pre tabindex="0"><code>git clone https://github.com/xiehuan123/browser-extension-launch.git \
   ~/.codex/skills/browser-extension-launch</code></pre>
         </div>
-        <p class="note">Start a new agent session after installation, then invoke <code>$browser-extension-launch</code>.</p>
+        <p class="note">Add <code>-g</code> for a user-level install. Runtime delivery also requires project file access, local commands, and a controlled browser provider capable of loading extensions.</p>
       </section>
     </main>
 

@@ -27,7 +27,17 @@ Verification applies only to the scope documented in each repository. It does no
 
 ## Install
 
-With npm:
+With the [Skill CLI](https://www.skills.sh/docs/cli) (recommended):
+
+```bash
+npx skills add xiehuan123/browser-extension-launch \
+  --skill browser-extension-launch \
+  --agent codex claude-code cursor github-copilot opencode
+```
+
+Add `-g` to install for the current user instead of the current project. Skill CLI 1.7.0 currently requires Node.js 22.20 or newer. It discovers this repository's root `SKILL.md` directly; no separate manifest is required.
+
+With the npm installer:
 
 ```bash
 npx browser-extension-launch install
@@ -47,6 +57,15 @@ Use $browser-extension-launch to build a browser extension that saves a sentence
 
 See the [Chinese user guide](使用说明.md) for the full beginner workflow. Skill locations, browser tools, and permission models differ between agent hosts, so adapt installation to the target host.
 
+## Agent Compatibility
+
+Skill CLI installation has been exercised for Codex, Claude Code, Cursor, GitHub Copilot, and OpenCode. The shared skill is host-neutral and checks file, shell, child-skill, and controlled-browser capabilities before work begins.
+
+- **Installation verified:** Skill CLI found the root skill and installed the complete folder for the five agents above.
+- **Runtime capability required:** the selected host still needs project file access, local command execution, and an extension-capable controlled browser tool to complete and certify a real browser extension.
+
+Playwright MCP is the preferred browser reference. A verified Chrome DevTools MCP or another controlled browser provider may be used when it covers the same native-entry and repeat-use evidence. See [Agent host compatibility](references/host-compatibility.md).
+
 ## Repository Layout
 
 ```text
@@ -61,7 +80,7 @@ docs/             English and Chinese GitHub Pages site
 
 ## Development Checks
 
-The helper scripts use Python 3.9+ and the standard library. Node.js 18+ is used for the npm installer tests.
+The helper scripts use Python 3.9+ and the standard library. Node.js 18+ is used for the npm installer tests; current Skill CLI releases require Node.js 22.20+.
 
 ```bash
 npm test
@@ -74,7 +93,7 @@ Validate the basic skill structure with:
 python3 /path/to/skill-creator/scripts/quick_validate.py .
 ```
 
-The structure validator requires PyYAML. Delivering an actual browser extension also requires the mandatory child skills listed by this skill and a Playwright MCP environment capable of loading extensions.
+The structure validator requires PyYAML. Delivering an actual browser extension also requires the child-skill capabilities listed by this skill and a controlled browser environment capable of loading extensions.
 
 ## Website
 

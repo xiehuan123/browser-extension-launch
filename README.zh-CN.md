@@ -27,7 +27,17 @@
 
 ## 安装
 
-使用 npm 安装：
+推荐使用 [Skill CLI](https://www.skills.sh/docs/cli)：
+
+```bash
+npx skills add xiehuan123/browser-extension-launch \
+  --skill browser-extension-launch \
+  --agent codex claude-code cursor github-copilot opencode
+```
+
+增加 `-g` 可以安装到当前用户目录，而不是当前项目。Skill CLI 1.7.0 目前要求 Node.js 22.20 或更高版本。CLI 会直接识别仓库根目录的 `SKILL.md`，不需要额外清单文件。
+
+也可以使用本项目提供的 npm 安装器：
 
 ```bash
 npx browser-extension-launch install
@@ -49,6 +59,15 @@ git clone https://github.com/xiehuan123/browser-extension-launch.git ~/.codex/sk
 
 完整的新手说明见[使用说明](使用说明.md)。不同 Agent 的 skill 安装目录、浏览器工具和权限模型可能不同，请按对应宿主调整。
 
+## Agent 兼容性
+
+已经使用 Skill CLI 对 Codex、Claude Code、Cursor、GitHub Copilot 和 OpenCode 完成安装验证。共享 skill 不绑定某个宿主，开始工作前会分别检查文件、终端、子技能和受控浏览器能力。
+
+- **安装已验证**：Skill CLI 能发现仓库根目录的 skill，并为上述五个 Agent 安装完整目录。
+- **运行能力仍需具备**：目标 Agent 仍需能够管理项目文件、运行本地命令，并连接可以加载插件和操作真实入口的受控浏览器工具，才能完成并证明真实交付。
+
+Playwright MCP 是首选浏览器参考实现；能够覆盖相同原生入口与连续使用证据的 Chrome DevTools MCP 或其他受控浏览器也可以采用。详见 [Agent 宿主兼容说明](references/host-compatibility.md)。
+
 ## 目录
 
 ```text
@@ -63,7 +82,7 @@ docs/             英文与中文 GitHub Pages 官网
 
 ## 开发检查
 
-脚本使用 Python 3.9+ 标准库，npm 安装器测试使用 Node.js 18+。运行测试：
+脚本使用 Python 3.9+ 标准库，npm 安装器测试使用 Node.js 18+；当前 Skill CLI 版本要求 Node.js 22.20+。运行测试：
 
 ```bash
 npm test
@@ -76,7 +95,7 @@ npm pack --dry-run
 python3 /path/to/skill-creator/scripts/quick_validate.py .
 ```
 
-结构校验脚本需要 PyYAML。浏览器插件的实际交付还需要本 skill 所列的必需子技能与可加载扩展的 Playwright MCP 环境。
+结构校验脚本需要 PyYAML。浏览器插件的实际交付还需要本 skill 所列的子技能能力，以及能够加载扩展的受控浏览器环境。
 
 ## 官网
 

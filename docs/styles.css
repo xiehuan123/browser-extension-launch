@@ -363,7 +363,7 @@ h3 {
 }
 
 .install .section-heading {
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 4;
 }
 
 .code-block {
